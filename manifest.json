@@ -1,0 +1,16 @@
+{
+  "name": "Beautifier Minifier",
+  "version": "2.1",
+  "manifest_version": 2,
+  "description": "minfi and beautify js/css/htm/json",
+  "icons": { "128": "assets/favicon.ico" },
+  "background": {
+    "persistent": false,
+    "scripts": ["script.js"]
+  },
+  "browser_action": {
+    "default_title": "",
+    "default_icon": "assets/favicon.ico",
+    "default_popup": "index.html"
+  }
+}

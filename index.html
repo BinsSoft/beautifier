@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html class="client-nojs" lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="description" content="Convert JS/Javascript or JSON or css stylescheet or HTML Strings to a Friendly Readable Format,Beautify or Minify"/>
+<meta name="author" content="Devsoft"/>
+<meta name="keywords" content="javascript formatter,formatter javascript, javascript obfuscator,online javascript formatter,javascript formatter online,javascript code formatter online,online script formatter,javascript minifier, minify javascript, javascript minified, de minify javascript, best javascript minifier, minified javascript, javascript reverse minify, un minify javascript, javascript de minify, php javascript minify, minifying javascript,online javascript beautifier, javascript beautifier online, online js beautifier, javascript online beautifier, js beautifier online, beautify js online, online code beautifier, beautify javascript online,js online beautifier, beautify code online, beautifier online, online jquery beautifier, jquery beautifier online    css formatter,formatter css, css obfuscator,online css formatter,css formatter online,css code formatter online,online script formatter,css minifier, minify css, css minified, de minify css, best css minifier, minified css, css reverse minify, un minify css, css de minify, php css minify, minifying css,online css beautifier, css beautifier online, online js beautifier, css online beautifier, js beautifier online, beautify js online, online code beautifier, beautify css online,js online beautifier, beautify code online, beautifier online, online css beautifier, css beautifier online css formatter,formatter html, html obfuscator,online html formatter,html formatter online,html code formatter online,online script formatter,html minifier, minify html, html minified, de minify html, best html minifier, minified html, html reverse minify, un minify html, html de minify, php html minify, minifying html,online html beautifier, html beautifier online, online js beautifier, html online beautifier, js beautifier online, beautify js online, online code beautifier, beautify html online,js online beautifier, beautify code online, beautifier online, online html beautifier, html beautifier online  formatter html, json obfuscator,online json formatter,json formatter online,json code formatter online,online script formatter,json minifier, minify json, json minified, de minify json, best json minifier, minified json, json reverse minify, un minify json, json de minify, php json minify, minifying json,online json beautifier, json beautifier online, online js beautifier, json online beautifier, js beautifier online, beautify js online, online code beautifier, beautify json online,js online beautifier, beautify code online, beautifier online, online json beautifier, json beautifier online"/>
+
+<link rel="shortcut icon" href="assets/favicon.ico">
+<title>Prettify - JSON / CSS / JS / HTML</title>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="assets/style.css"/>
+
+<!-- <script src="assets/thirdparty/codemirror.js" charset="utf-8"></script>
+<script src="assets/thirdparty/css.js" charset="utf-8"></script>
+
+
+<link rel="stylesheet" type="text/css" href="assets/thirdparty/codemirror.css"/>
+
+
+<script type="text/javascript" src="bin/cssbeautify.js" charset="utf-8"></script>
+<script type="text/javascript" src="bin/beautify.js"></script>
+<script type="text/javascript" src="bin/beautify-html.js"></script>
+ -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script type="text/javascript" src="bin/bootstrap.min.js"></script>
+<script type="text/javascript" src="bin/beauty/beautify.js"></script>
+<script type="text/javascript" src="bin/beauty/beautify-css.js"></script>
+<script type="text/javascript" src="bin/beauty/beautify-html.js"></script>
+<script type="text/javascript" src="bin/beauty/cssmin.js"></script>
+<script type="text/javascript" src="bin/beauty/jsmin.js"></script>
+</head>
+<body>
+<header>
+	<h1>Beautifier - Minifier</h1>
+</header>
+<div class="container">
+<div class="col-md-12 text-center">
+	<label class="btn btn-warning optionBtn"><input type="radio" name="texttype" value="json" /><span>JSON</span></label>
+	<label class="btn btn-warning optionBtn"><input type="radio" name="texttype" value="css"><span>CSS</span></label>
+	<label class="btn btn-warning optionBtn"><input type="radio" name="texttype" value="js"><span>JS</span> </label>
+	<label class="btn btn-warning optionBtn"><input type="radio" name="texttype" value="html"><span>HTML</span></label>
+</div>
+<div class="clearfix"></div>
+<br/>
+<div class="clearfix"></div>
+<div class="col-md-6 textmaincontainer">
+	<input type="file" name="minfiyfile" id="minfiyfile"  class="form-control" />
+	<br/>
+	<textarea class="form-cotrol minifierContainer jsonText"  ></textarea>
+	<br/><br/>
+	
+</div>
+<div class="col-md-6 textmaincontainer">
+	<input type="file" name="beautyfile" id="beautyfile" class="form-control"  />
+	<br/>
+	<textarea class="form-cotrol  beautifierContainer jsonText"></textarea>
+	<br/><br/>
+	
+</div>
+<div class="col-md-12 text-center">
+	<div class="col-md-5">
+		<input type="button" name="modifier" class="btn btn-danger btn-lg modifyBtn" data-type="beautify" value="Prettify">
+	</div>
+	<div class="col-md-2">
+		<button class="btn btn-warning btn-lg downloadBtn">Download</button>
+	</div>
+	<div class="col-md-5">
+		<input type="button" name="modifier" class="btn btn-info btn-lg modifyBtn" data-type="minify" value="Minifier">
+	</div>
+</div>
+</div>
+
+<div id="downloadModal" class="modal fade" role="dialog">
+  <div class="modal-dialog modal-sm">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Download Script</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+        	<input type="text" name="downloadfilename" class="form-control" placeholder="Enter Download File Name" />
+        </p>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary downloadMainBtn">Download</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<script type="text/javascript" src="script.js"></script>
+
+
+</body>
+</html>
