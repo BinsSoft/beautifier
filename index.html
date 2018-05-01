@@ -11,17 +11,7 @@
 <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" />
 <link rel="stylesheet" type="text/css" href="assets/style.css"/>
 
-<!-- <script src="assets/thirdparty/codemirror.js" charset="utf-8"></script>
-<script src="assets/thirdparty/css.js" charset="utf-8"></script>
 
-
-<link rel="stylesheet" type="text/css" href="assets/thirdparty/codemirror.css"/>
-
-
-<script type="text/javascript" src="bin/cssbeautify.js" charset="utf-8"></script>
-<script type="text/javascript" src="bin/beautify.js"></script>
-<script type="text/javascript" src="bin/beautify-html.js"></script>
- -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
 <script type="text/javascript" src="bin/bootstrap.min.js"></script>
 <script type="text/javascript" src="bin/beauty/beautify.js"></script>
@@ -43,6 +33,7 @@
     border: 1px solid #ffc165;">
 	Binssoft Present
 </div>
+<div class="err-panel"></div>
 <header>
 	<h1>Beautifier - Minifier</h1>
 </header>
@@ -57,14 +48,14 @@
 <br/>
 <div class="clearfix"></div>
 <div class="col-md-6 textmaincontainer">
-	<input type="file" name="minfiyfile" id="minfiyfile"  class="form-control" />
+	<input type="file" name="minfiyfile" id="minfiyfile"  class="form-control upload-file-control" />
 	<br/>
 	<textarea class="form-cotrol minifierContainer jsonText"  ></textarea>
 	<br/><br/>
 	
 </div>
 <div class="col-md-6 textmaincontainer">
-	<input type="file" name="beautyfile" id="beautyfile" class="form-control"  />
+	<input type="file" name="beautyfile" id="beautyfile" class="form-control upload-file-control"  />
 	<br/>
 	<textarea class="form-cotrol  beautifierContainer jsonText"></textarea>
 	<br/><br/>

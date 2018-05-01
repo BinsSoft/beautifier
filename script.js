@@ -37,8 +37,23 @@ fileType.js = 'application/javascript';
 fileType.html = 'text/html';
 fileType.json = 'application/json';
 var text ='';
+var renderError = function(text) {
+	$(".err-panel")
+		.html(text)
+		.slideDown('slow');
+	setTimeout(function(){
+		$(".err-panel").slideUp();
+	},3000)
+}
 $(function(){
-
+	$(".upload-file-control").click(function(){
+		var selectFileType = $('input[name=texttype]:checked').val();
+		if(selectFileType == undefined) {
+			renderError('Please Select Any Of File Type');
+			return false;
+		}
+		
+	})
 	$("#minfiyfile").change(function() {
 		var file = document.getElementById("minfiyfile").files[0];
 		if (file) {
@@ -54,7 +69,7 @@ $(function(){
 			        //document.getElementById("fileContents").innerHTML = "error reading file";
 			    }
 			} else {
-				alert("Please select any file with ext "+selectFileType+" or change the option");
+				renderError("Please select any file with ext "+selectFileType+" or change the option");
 				return false;
 			}
 		    
@@ -76,7 +91,7 @@ $(function(){
 			        //document.getElementById("fileContents").innerHTML = "error reading file";
 			    }
 			} else {
-				alert("Please select any file with ext "+selectFileType+" or change the option");
+				renderError("Please select any file with ext "+selectFileType+" or change the option");
 				return false;
 			}
 		    
