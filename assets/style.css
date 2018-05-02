@@ -1,7 +1,11 @@
 
 body {
     min-width: 960px;
-    background-color: #19191b;
+    background: rgb(53,106,160); /* Old browsers */
+background: -moz-linear-gradient(-45deg, rgba(53,106,160,1) 0%, rgba(53,106,160,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(-45deg, rgba(53,106,160,1) 0%,rgba(53,106,160,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(135deg, rgba(53,106,160,1) 0%,rgba(53,106,160,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#356aa0', endColorstr='#356aa0',GradientType=1 );
     margin: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-size: 13px;
@@ -21,13 +25,19 @@ header h1 {
 }
 .btn.modifyBtn {
     width: 100%;
+    font-size: 15px;
+    font-weight: bold;
+}
+.btn.downloadBtn {
+    font-size: 15px;
+    font-weight: bold; 
 }
 .clearfix{
     clear: both;
 }
 textarea.form-cotrol{
     border-radius: 5px;
-    height: 400px; 
+    height: 320px; 
     width: 100%
 }
 .optionBtn{

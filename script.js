@@ -36,7 +36,7 @@ fileType.css = 'text/css';
 fileType.js = 'application/javascript';
 fileType.html = 'text/html';
 fileType.json = 'application/json';
-var text ='';
+var resultText ='';
 var renderError = function(text) {
 	$(".err-panel")
 		.html(text)
@@ -101,17 +101,22 @@ $(function(){
 	$(".modifyBtn").click(function(){
 		
 		//try {
+			const fileType = $('input[name=texttype]:checked').val();
+			if (fileType == undefined) {
+				renderError("Please select any file type.");
+				return false;
+			}
 			$(".downloadBtn").attr("data-type", $(this).attr('data-type'));
 
 			if ($(this).attr('data-type') == 'beautify') {
-				text = $(".minifierContainer").val();
+				resultText = $(".minifierContainer").val();
 			} else if($(this).attr('data-type') == 'minify') {
-				text = $(".beautifierContainer").val();
+				resultText = $(".beautifierContainer").val();
 			}
 			
 			/* CSS */
 
-			if ($('input[name=texttype]:checked').val() == 'css') {
+			if (fileType == 'css') {
 				if ($(this).attr('data-type') == 'beautify') {
 						
 					 var default_opts = {
@@ -127,17 +132,17 @@ $(function(){
 					        end_with_newline: false
 					    };
 
-					   text =  css_beautify(text, default_opts);
+					   resultText =  css_beautify(resultText, default_opts);
 
 				} else if($(this).attr('data-type') == 'minify') {
 
-					text = cssmin(text,0);
+					resultText = cssmin(resultText,0);
 				}
 				
 
 			}
 			/* HTML */
-			else if ($('input[name=texttype]:checked').val() == 'html') {
+			else if (fileType == 'html') {
 				if ($(this).attr('data-type') == 'beautify') {
 					
 					var default_opts = {
@@ -152,18 +157,18 @@ $(function(){
 				        selector_separator: '\n',
 				        end_with_newline: false
 				    };
-				    text = html_beautify(text, default_opts);
+				    resultText = html_beautify(resultText, default_opts);
 
 				} else if($(this).attr('data-type') == 'minify') {
 
-					text= text.replace(/>\s+</g,'><');
+					resultText= resultText.replace(/>\s+</g,'><');
 					
 				}
 
 			} 
 
 			/* JS */
-			else if ($('input[name=texttype]:checked').val() == 'js') {
+			else if (fileType == 'js') {
 				if ($(this).attr('data-type') == 'beautify') {
 					
 					var default_opts = {
@@ -178,31 +183,31 @@ $(function(){
 				        selector_separator: '\n',
 				        end_with_newline: false
 				    };
-				    text = js_beautify(text, default_opts);
+				    resultText = js_beautify(resultText, default_opts);
 
 				} else if($(this).attr('data-type') == 'minify') {
-					text = jsmin(text);
+					resultText = jsmin(resultText);
 				}
 
 			} 
 			/* JSON */
-			else if ($('input[name=texttype]:checked').val() == 'json') {
-				text = JSON.parse(text);
+			else if (fileType == 'json') {
+				resultText = JSON.parse(resultText);
 			
 				if ($(this).attr('data-type') == 'beautify') {
-					text = JSON.stringify(text, null, 4);
+					resultText = JSON.stringify(resultText, null, 4);
 				} else if($(this).attr('data-type') == 'minify') {
-					text = JSON.stringify(text, null, 0);
+					resultText = JSON.stringify(resultText, null, 0);
 				}
 			}
 			
 		/*} catch(err) {
-			var text = err.message;
+			var resultText = err.message;
 		}*/
 		if ($(this).attr('data-type') == 'beautify') {
-			$(".beautifierContainer").val(text);
+			$(".beautifierContainer").val(resultText);
 		} else if($(this).attr('data-type') == 'minify') {
-			$(".minifierContainer").val(text);
+			$(".minifierContainer").val(resultText);
 		}
 		
 		
@@ -214,13 +219,21 @@ $(function(){
 	});
 
 	$(".downloadBtn").click(function(){
-		var type = $(this).attr("data-type");
+		const fileType = $('input[name=texttype]:checked').val();
+		const type = $(this).attr("data-type");
+		if (fileType == undefined) {
+			renderError("Please select any file type.");
+			return false;
+		} else if(type == undefined || resultText == '') {
+			renderError("Please do any minify or beautify first");
+			return false;
+		}
+
 		var fileName = "download";
-		var fType = $('input[name=texttype]:checked').val();
-		if ((fType=='css' || fType == 'js') &&type == 'minify') {
+		if ((fileType=='css' || fileType == 'js') && type == 'minify') {
 			fileName +=".min";
 		}
-		fileName += "."+fType;
+		fileName += "."+fileType;
 		$("input[name=downloadfilename]").val(fileName);
 		$("#downloadModal").modal("show");
 			
@@ -233,7 +246,7 @@ $(function(){
 			alert("Please Enter any name");
 			return false;
 		}
-		saveTextAsFile(text,filename,fileType[fType]);
+		saveTextAsFile(resultText,filename,fileType[fType]);
 		$("#downloadModal").modal("hide");
 	})
 });
